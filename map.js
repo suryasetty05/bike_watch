@@ -1,11 +1,9 @@
-// Import Mapbox as an ESM module
 import mapboxgl from 'https://cdn.jsdelivr.net/npm/mapbox-gl@2.15.0/+esm';
-// Check that Mapbox GL JS is loaded
+import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
-// Set your Mapbox access token here
 mapboxgl.accessToken = 'pk.eyJ1Ijoic3NldHR5IiwiYSI6ImNtYXJ1MWNkNjBhcWoycW9rbWl1cTcwOTgifQ.yPoc0AGYI2s6Qcrq_qZ2ew';
+let INPUT_BLUEBIKES_CSV_URL = 'https://dsc106.com/labs/lab07/data/bluebikes-stations.json'
 
-// Initialize the map
 const map = new mapboxgl.Map({
   container: 'map', // ID of the div where the map will render
   style: 'mapbox://styles/mapbox/dark-v11', // Map style
@@ -16,7 +14,6 @@ const map = new mapboxgl.Map({
 });
 
 map.on('load', async () => {
-  // Add the GeoJSON source for bike routes
   map.addSource('boston_route', {
     type: 'geojson',
     data: 'https://bostonopendata-boston.opendata.arcgis.com/datasets/boston::existing-bike-network-2022.geojson',
@@ -49,5 +46,16 @@ map.on('load', async () => {
       'line-opacity': 0.4,
     },
   });
+    let jsonData;
+    try {
+        const jsonurl = INPUT_BLUEBIKES_CSV_URL;
+        const jsonData = await d3.json(jsonurl);
+        console.log('Loaded JSON Data:', jsonData); // Log to verify structure
+
+        let stations = jsonData.data.stations;
+        console.log('Stations Array:', stations);
+  } catch (error) {
+        console.error('Error loading JSON:', error); // Handle errors
+  }
 
 });
