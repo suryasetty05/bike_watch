@@ -8,3 +8,94 @@ body {
   margin: auto;
   padding: 1em;
 }
+/* h1 {
+  font-size: 2em;
+  margin: 0;
+  display: block;
+  margin-left: auto;
+}
+header {
+  display: flex;
+  gap: 1em;
+  align-items: baseline;
+}
+header time {
+  display: block
+}
+header em {
+  display: block;
+} */
+ header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+}
+
+/* Left side with logo and title */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0;
+  color: #333;
+  font-weight: normal;
+}
+
+/* Right side with filter controls */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.filter-label {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Time display */
+header time {
+  color: #666;
+  font-size: 14px;
+}
+
+header em {
+  color: #999;
+  font-style: italic;
+  font-size: 12px;
+}
+
+/* Input range styling */
+input[type="range"] {
+  width: 200px;
+  height: 6px;
+  background: #ddd;
+  border-radius: 3px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #007bff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #007bff;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}

@@ -15,9 +15,21 @@
     <link rel="stylesheet" href="map.css">
 </head>
 <body>
-    <h1>🚴🏼‍♀️ Bikewatching</h1>
+    <header>
+        <h1>🚴🏼‍♀️ Bikewatching
+        </h1>
+        <input id='time-slider' type="range" min="-1" max="1440">
+        <em id="any-time">(any time)</em> 
+        <time id="selected-time"> Time</time>
+    </header>
     <div id="map">
         <svg></svg>
+    </div>
+    <div class="legend">
+        <div style="background-color: steelblue">More departures</div>
+        <div style="background-color: color-mix(in oklch, var(--color-departures) calc(100% * 0.5), var(--color-arrivals));
+        ">Balanced</div>
+        <div style="background-color: darkorange">More arrivals</div>
     </div>
 
 </body>
